@@ -14,4 +14,8 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 ## theory
 
 * [Little's Law for Single Server Queue](https://github.com/chunkaichang/til/blob/master/theory/little_s_law.md) - 2020-04-28
+
+## comp_arch
+
+* [RISC-V ISA](https://github.com/chunkaichang/til/blob/master/comp_arch/riscv_isa.md) - 2020-04-28
 <!-- index ends -->

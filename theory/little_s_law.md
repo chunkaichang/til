@@ -24,6 +24,6 @@ where <img src="https://render.githubusercontent.com/render/math?math=\rho"> is 
 
 Combining the above two results gives:
 
-<img src="https://render.githubusercontent.com/render/math?math=n = L \plus \rho">
+<img src="https://render.githubusercontent.com/render/math?math=n = L %2B \rho">
 
 Note that this requires the arrival rate is no greater than the service rate; otherwise, the queue grows indefinitely.

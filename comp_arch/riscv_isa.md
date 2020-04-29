@@ -18,4 +18,16 @@
 
 - Misaligned accesses are allowed (depending on the execution environment) and can be handled in software. However, misaligned loads and stores do not guarantee atomicity.
 
-- Weak memory consistency model is the default and seperates out I/O ordering from memory R/W ordering for performance. There is an extension for total store ordering.
+- Weak memory consistency model is the default. There is an extension for total store ordering. Sequential consistency is also possible by using atomic instructions in the A extension.
+
+## Extension M
+
+- Since there are no condition codes, divide-by-zero writes a special value (all 1's) to the destination register and does NOT raise an exception. Software needs to insert branches if language standards mandate divide-by-zero exceptions.
+
+## Extension A
+
+- The execution environment divides the address space to memory domain and I/O domain so that each domain can have its own memory ordering constraints (for performance). 
+
+- Atomic instructions are used to enforce ordering within a domain. To enforce ordering across domains, FENCE instructions (part of base instruction set) should be used. 
+
+- Two forms of atomic instructions: load-reserved/store-conditional and fetch-and-op. The spec explains why LR/SC is chosen rather than compare-and-swap.

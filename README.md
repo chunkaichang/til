@@ -18,4 +18,8 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 ## comp_arch
 
 * [RISC-V ISA](https://github.com/chunkaichang/til/blob/master/comp_arch/riscv_isa.md) - 2020-04-28
+
+## c++
+
+* [Runtime polymorphism with std::variant and std::visit (C++17)](https://github.com/chunkaichang/til/blob/master/c++/std_variant_visit.md) - 2020-05-05
 <!-- index ends -->

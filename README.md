@@ -10,6 +10,7 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 ## python
 
 * [Generate weighted random numbers](https://github.com/chunkaichang/til/blob/master/python/weighted_rng.md) - 2020-04-23
+* [Plotting bar graphs with pandas](https://github.com/chunkaichang/til/blob/master/python/pandas_bars.md) - 2020-05-10
 
 ## theory
 

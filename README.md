@@ -23,4 +23,8 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 ## c++
 
 * [Runtime polymorphism with std::variant and std::visit (C++17)](https://github.com/chunkaichang/til/blob/master/c++/std_variant_visit.md) - 2020-05-05
+
+## cli
+
+* [Shell Tools](https://github.com/chunkaichang/til/blob/master/cli/shell_tools.md) - 2020-05-15
 <!-- index ends -->

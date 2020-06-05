@@ -28,4 +28,8 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 
 * [Shell Tools](https://github.com/chunkaichang/til/blob/master/cli/shell_tools.md) - 2020-05-15
 * [VIM](https://github.com/chunkaichang/til/blob/master/cli/vim.md) - 2020-05-24
+
+## general_programming
+
+* [Bit hacks](https://github.com/chunkaichang/til/blob/master/general_programming/bit_hacks.md) - 2020-06-05
 <!-- index ends -->

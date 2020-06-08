@@ -1,6 +1,6 @@
 # Bit hacks
 
-## minimum of two integer
+## minimum of two integers
 
 - With Branch: `x < y ? x : y`
 - Branchless: `y ^ ((x ^ y) & -(x < y))`
@@ -9,7 +9,7 @@
 Compute (x + y) mod n (assuming 0 <= x < n and 0 <= y < n):
 
 - Naive: `r = (x + y) % n;`
-- With branch:
+- With branch but without division:
 ```c
 z = x + y;
 r = z < n ? z : z - n;
@@ -21,7 +21,7 @@ r = z - (n & -(z >= n));
 ```
 
 ## round up to next power of 2
-The idea is to populate bits and then incrment.
+The idea is to populate bits and then increment.
 ```c
 uint64_t n;
 --n; // needed if n is already power of 2
@@ -71,8 +71,8 @@ x = ((x >> 32) + x) & M5;
 ```
 
 ## Log2 of power of 2
-- Use popcount: `popcount( x - 1)` 
-- Multiply a deBruijn sequence: Since multiplying power of 2 is equal to left shift, the idea is to know how many bits are shifted using the property of deBruijn sequence.
+- Use popcount: `popcount(x - 1)` 
+- Multiply a deBruijn sequence: Since multiplying power of 2 is equal to left shift, the idea is to determine how many bits are shifted using the property of deBruijn sequences.
 
 ---
 ## References

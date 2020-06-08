@@ -1,13 +1,13 @@
 # Plotting bar graphs with pandas
 
-The following code plots a bar graph with 5 groups, each of which has 2 attributes.
+The following code plots a bar graph with 5 groups, each of which has 2 attributes. The graph is generated from a dataframe where columns are attributes.
 
 Note that the plot function returns an `matplotlib.axes.Axes` object, which can be used to set xlabel and ylabel.
 
 ## Additional features
 
 - Stacked bars: specifying `stacked=True` in `plot.bar()` will stack attributes of each group.
-- Subplots by attributes: specifying `subplots=True` will split the original graph into subplots by attributes. Notice that `plot.bar()` will return an array of axes objects instead.
+- Subplots by attributes: specifying `subplots=True` will split the original graph into subplots by attributes. Notice that in this case `plot.bar()` returns an array of axes objects instead.
 
 ```python
 import pandas as pd

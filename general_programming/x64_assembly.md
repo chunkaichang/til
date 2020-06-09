@@ -43,6 +43,13 @@ cmovne %rax, %r8
 data16 data16 data16 nopw %cs:0x0(%rax, %rax, 1)
 ```
 
+## Linux calling convention
+
+- Callee-saved registers: `rbx`, `rbp, `r12`-`r15`
+- Caller-saved registers: all other registers 
+- Return value: `rax`
+- Function arguments (in order): `rdi`, `rsi`, `rdx`, `rcx`, `r8`, `r9`
+
 ---
 ## References
 [MIT 6.172](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018/index.htm)

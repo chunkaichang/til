@@ -15,6 +15,7 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 ## theory
 
 * [Little's Law for Single Server Queue](https://github.com/chunkaichang/til/blob/master/theory/little_s_law.md) - 2020-04-28
+* [Parallelism of Computation DAG](https://github.com/chunkaichang/til/blob/master/theory/comp_dag.md) - 2020-06-11
 
 ## comp_arch
 

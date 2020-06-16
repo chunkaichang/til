@@ -16,7 +16,7 @@ The implementation relies on the fact that atomic instructions also implicitly a
 
 - Spinning locks:
 
-```
+```assembly
 Spin_Mutex:
     cmp 0, mutex        ; test if mutex is free
     je Get_Mutex
@@ -36,7 +36,7 @@ Get_Mutex:
 The key here is `xchg` (atomic exchange). The code between `Spin_Mutex` and `Get_Mutex` is not necessary for correctness but for performance (avoiding cache invalidation).
 
 - Yielding locks:
-Replaces the `pause` instruction above with call for yield.
+Replaces the `pause` instruction above with yield call.
 
 ### Performance issues
 If the thread holding the lock is descheduled by the OS, the other threads cannot make progress either.
@@ -44,6 +44,6 @@ If the thread holding the lock is descheduled by the OS, the other threads canno
 ---
 
 ## Implementation Mutual Exclusion without Locks
-There are well-known algorithms for lock-free mutual exclusion such as Dekker's algorithm and Peterson's algorithm which use only LOADs and STOREs. However, they assume sequential consistency (SC). Since SC hits performance (e.g., load bypassing is not allowed), modern processors implements more relaxed memory models (e.g., TSO, weak memory consistency, etc.). As a result, these algorithms need to use atomic loads/stores when running on modern machines.
+There are well-known algorithms for lock-free mutual exclusion such as Dekker's algorithm and Peterson's algorithm which use only LOADs and STOREs. However, they assume sequential consistency (SC). Since SC hits performance (e.g., load bypassing is not allowed), modern processors implement more relaxed memory models (e.g., TSO, weak memory consistency, etc.). As a result, these algorithms need to use atomic loads/stores when running on modern machines.
 
 Instead of using the above generic algorithms that mimic locks, applications can also adopt lock-free algorithms and data structures. These approaches allow threads to make progress without locks by using atomic instructions (e.g., compare-and-swap) or hw support for transactional memory.

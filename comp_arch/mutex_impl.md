@@ -8,11 +8,14 @@ Types of mutexes:
 - Spinning: keeps trying until acquiring the lock (wasting processor cycles)
 - Yielding: yields control to OS if the lock is not free.
 
+The following summarizes example implementation for x86 and RISC-V. For implementation at a higher level, Erik Rigtorp has written a [post](https://rigtorp.se/spinlock/) on how to implement spinlocks correctly in C++.
+
 ### x86
 
+Here is an example implementation from MIT 6.172 lecture slides.
 The implementation relies on the fact that atomic instructions also implicitly act as memory fences.
 
-> All assembly code uses AT&T syntax
+> The following assembly code uses AT&T syntax
 
 - Spinning locks:
 
@@ -20,8 +23,8 @@ The implementation relies on the fact that atomic instructions also implicitly a
 Spin_Mutex:
     cmp 0, mutex        ; test if mutex is free
     je Get_Mutex
-    pause               ; hint to hw that this is a spin-wait loop
-                        ; avoid hw to execute the following code speculatively
+    pause               ; tell cpu that we are spinning
+                        ; save power or allow other hw thread to proceed (if any)
     jmp Spin_Mutex
 Get_Mutex:
     mov 1, %rax
@@ -30,6 +33,7 @@ Get_Mutex:
     jne Spin_Mutex
 
     <critical-section code>
+
     mov 0, mutex        ; release mutex
 ```
 
@@ -38,12 +42,39 @@ The key here is `xchg` (atomic exchange). The code between `Spin_Mutex` and `Get
 - Yielding locks:
 Replaces the `pause` instruction above with yield call.
 
+### RISC-V
+
+Here is an example implementation from the RISC-V spec.
+
+```assembly
+    # a0 holds the lock address
+    li t0, 1
+again:
+    lw t1, (a0)
+    bnez t1, again
+    amoswap.w.aq t1, t0, (a0)
+    bnez t1, again
+
+    <critical-section code>
+
+    amoswap.w.rl x0,x0, (a0)
+```
+
+The `amoswap` is the atomic swap instruction. However, since RISC-V implements release consistency, it allows atomic instructions to act as more flexible memory fences via the aquire and release bits, and hence allows more optimization in hw or at compile time.
+
 ### Performance issues
-If the thread holding the lock is descheduled by the OS, the other threads cannot make progress either.
+- If the thread holding the lock is descheduled by the OS, the other threads cannot make progress either.
+- For high performance, we need to consider cache coherence and implement the test-test-and-set idiom.
 
 ---
 
 ## Implementation Mutual Exclusion without Locks
-There are well-known algorithms for lock-free mutual exclusion such as Dekker's algorithm and Peterson's algorithm which use only LOADs and STOREs. However, they assume sequential consistency (SC). Since SC hits performance (e.g., load bypassing is not allowed), modern processors implement more relaxed memory models (e.g., TSO, weak memory consistency, etc.). As a result, these algorithms need to use atomic loads/stores when running on modern machines.
+There are well-known algorithms for lock-free mutual exclusion such as Dekker's algorithm and Peterson's algorithm which use only LOADs and STOREs. However, they assume sequential consistency (SC). Since SC hits performance (e.g., load bypassing is not allowed), modern processors implement more relaxed memory models (e.g., TSO, release consistency, etc.). As a result, these algorithms need to use atomic loads/stores when running on modern machines.
 
 Instead of using the above generic algorithms that mimic locks, applications can also adopt lock-free algorithms and data structures. These approaches allow threads to make progress without locks by using atomic instructions (e.g., compare-and-swap) or hw support for transactional memory.
+
+
+---
+## References
+[MIT 6.172](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-172-performance-engineering-of-software-systems-fall-2018/index.htm)
+[RISC-V unprivileged spec](https://riscv.org/specifications/isa-spec-pdf/)

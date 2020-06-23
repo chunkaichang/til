@@ -35,4 +35,5 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 
 * [Bit hacks](https://github.com/chunkaichang/til/blob/master/general_programming/bit_hacks.md) - 2020-06-05
 * [x86-64 assembly](https://github.com/chunkaichang/til/blob/master/general_programming/x64_assembly.md) - 2020-06-08
+* [Understanding symbols and linking process](https://github.com/chunkaichang/til/blob/master/general_programming/linker.md) - 2020-06-23
 <!-- index ends -->

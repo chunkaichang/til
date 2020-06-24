@@ -21,6 +21,7 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 
 * [RISC-V ISA](https://github.com/chunkaichang/til/blob/master/comp_arch/riscv_isa.md) - 2020-04-28
 * [Implementing Mutual Exclusion](https://github.com/chunkaichang/til/blob/master/comp_arch/mutex_impl.md) - 2020-06-16
+* [Understanding Latency Hiding on GPUs](https://github.com/chunkaichang/til/blob/master/comp_arch/gpu_latency_hiding.md) - 2020-06-24
 
 ## c++
 

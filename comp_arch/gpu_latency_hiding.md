@@ -27,8 +27,6 @@ This model has two modes. When occupancy is small, throughput is linear to occup
 ### Issues of the model
 1. In reality, there is a *gradual saturation effect* where latency-bound mode transitions to throughput-bound mode nonlinearly (e.g., due to resource sharing among warps, if one warp is issued, the others' latency increases).
 2. Throughput can even decrease with occupancy (e.g., due to cache thrashing).
-
-### Estimating latency bound
 The latency bound (i.e., the minimum warp latency) is derived from the dependency graph of a kernel where nodes are instructions and edges are various dependencies (data dependencies, reissue latency of a warp, etc.). The latency bound is the critical path.
 
 ### Estimating throughput bound
@@ -38,3 +36,10 @@ The throughput bound is the minimum throughput among various pipeline stages (e.
 throughput bound ~= peak memory throughput per SM / the amount of data transfer
 ```
 
+## Understanding latency hiding
+The above model can help understand latency hiding. For example, given a target kernel and a hardware model, the goal is to know the needed occupancy to reach max throughput via latency hiding.
+
+This thesis found:
+1. Although hiding memory latency requires more warps than hiding arithmetic latency, the ratio is decreasing over time due to the memory wall (i.e, improvement in memory throughput lags behind improement in compute).
+2. If memory accesses are not coalesced, the needed occupancy is lower than the case where accessess are fully coalesced. This is because each warp poses higher pressure (more memory transactions per warp) on the memory subsystem.
+3. The maximum of needed occupancy occurs when the workload is both compute- and memory-bound (in particular when arithmetic intensity equals the ratio of compute throughput to memory throughput).

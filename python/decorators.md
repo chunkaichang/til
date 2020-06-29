@@ -30,4 +30,5 @@ The followings are notes of writing and using decorators and the application of 
 ---
 ## References
 [Primer on Python Decorators](https://realpython.com/primer-on-python-decorators/)
+
 [flexible_decorators]: https://realpython.com/primer-on-python-decorators/#both-please-but-never-mind-the-bread 

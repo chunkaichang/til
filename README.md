@@ -12,6 +12,7 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 * [Generate weighted random numbers](https://github.com/chunkaichang/til/blob/master/python/weighted_rng.md) - 2020-04-23
 * [Plotting bar graphs with pandas](https://github.com/chunkaichang/til/blob/master/python/pandas_bars.md) - 2020-05-10
 * [Decorators](https://github.com/chunkaichang/til/blob/master/python/decorators.md) - 2020-06-29
+* [Object attributes and descriptors](https://github.com/chunkaichang/til/blob/master/python/attr_descriptor.md) - 2020-07-01
 
 ## theory
 

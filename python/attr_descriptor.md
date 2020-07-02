@@ -27,4 +27,4 @@ Suppose a set of properties of an object enforce the same update constraint (e.g
 
 ---
 ## References
-[Python descriptors](https://realpython.com/python-descriptors/
+[Python descriptors](https://realpython.com/python-descriptors/)

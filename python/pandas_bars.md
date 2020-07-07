@@ -1,6 +1,6 @@
 # Plotting bar graphs with pandas
 
-The following code plots a bar graph with 5 groups, each of which has 2 attributes. The graph is generated from a dataframe where columns are attributes.
+The following code plots a bar graph with 5 groups, each of which has 2 attributes. The graph is generated from a dataframe where rows (indices) are groups and columns are attributes.
 
 Note that the plot function returns an `matplotlib.axes.Axes` object, which can be used to set xlabel and ylabel.
 

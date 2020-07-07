@@ -14,6 +14,14 @@ if __name__ == "__main__":
     for row in db["til"].rows_where(order_by="created_utc"):
         by_topic.setdefault(row["topic"], []).append(row)
     index = ["<!-- index starts -->"]
+    # topic anchors
+    for topic in by_topic:
+        topic_link = '-'.join(topic.lower().split())
+        index.append(f"- [{topic}](#{topic_link})")
+    index.append(" ")
+    index.append("---")
+    index.append(" ")
+    # articles by topics
     for topic, rows in by_topic.items():
         index.append("## {}\n".format(topic))
         for row in rows:

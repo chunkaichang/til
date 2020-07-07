@@ -2,7 +2,7 @@ from datetime import timezone
 import git
 import pathlib
 import sqlite_utils
-
+import yaml
 
 root = pathlib.Path(__file__).parent.resolve()
 
@@ -33,15 +33,21 @@ def build_database(repo_path):
     all_times = created_changed_times(repo_path)
     db = sqlite_utils.Database(repo_path / "til.db")
     table = db.table("til", pk="path")
+
+    with open("topics.yaml") as f:
+        topics = yaml.load(f)
+
     for filepath in root.glob("*/*.md"):
         fp = filepath.open()
         title = fp.readline().lstrip("#").strip()
         body = fp.read().strip()
         path = str(filepath.relative_to(root))
+        topic_dir = path.split("/")[0]
+        topic_name = topics.get(topic_dir, topic_dir)
         url = "https://github.com/chunkaichang/til/blob/master/{}".format(path)
         record = {
             "path": path.replace("/", "_"),
-            "topic": path.split("/")[0],
+            "topic": topic_name,
             "title": title,
             "url": url,
             "body": body,

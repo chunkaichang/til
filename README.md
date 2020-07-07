@@ -16,6 +16,7 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 * [Factory Patterns](https://github.com/chunkaichang/til/blob/master/python/factory.md) - 2020-07-02
 * [Type Checking in Python3](https://github.com/chunkaichang/til/blob/master/python/typing.md) - 2020-07-03
 * [Virtual environments and multiple python versions](https://github.com/chunkaichang/til/blob/master/python/venv.md) - 2020-07-04
+* [Pandas Dataframes](https://github.com/chunkaichang/til/blob/master/python/pandas_df.md) - 2020-07-07
 
 ## theory
 

@@ -10,8 +10,8 @@ The `logging` modules provides an API for logging events with different severity
 
 ## Handler objects
 - Some useful handler classes are:
-        - `logging.StreamHandler()`: for logging to console
-        - `logging.FileHandler()`: for logging to a file 
+    - `logging.StreamHandler()`: for logging to console
+    - `logging.FileHandler()`: for logging to a file 
 - Each handler handles events higher than its level (set by `setLevel()`)
 - Handlers can also format its output via setting a formatter
 
@@ -21,6 +21,9 @@ The `logging` modules provides an API for logging events with different severity
 
 ## Filter objects
 - Filter provides sophisticated control of event filtering (beyond log levels, e.g., by logger names). It can also be used to inject app-specific data as log record attributes, which can then be accessed by formatters.
+
+## Other usages
+- When debugging specfic functions, we can also decorate the original functions with logging capabilities. See this [post](https://martinheinz.dev/blog/24) by Martin Heinz and the [decorator](decorators.md) note.
 
 
 ---

@@ -21,7 +21,7 @@ The followings are notes of writing and using decorators and the application of 
 
 ## Applications
 - Profiling
-- Debugging (e.g., printing signatures)
+- Debugging (e.g., printing signatures, [logging](logging.md))
 - Caching (e.g., `functools.lru_cache`)
 - Rate-limiting
 - Plugin registration (e.g., registering custom accessors in pandas)

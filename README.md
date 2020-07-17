@@ -28,6 +28,7 @@ My til adopted from [simonw/til](https://github.com/simonw/til).
 * [Virtual environments and multiple python versions](https://github.com/chunkaichang/til/blob/master/python/venv.md) - 2020-07-04
 * [Pandas Dataframes](https://github.com/chunkaichang/til/blob/master/python/pandas_df.md) - 2020-07-07
 * [Logging](https://github.com/chunkaichang/til/blob/master/python/logging.md) - 2020-07-08
+* [Generators and Data Pipelines](https://github.com/chunkaichang/til/blob/master/python/generators.md) - 2020-07-17
 
 ## Theories
 
